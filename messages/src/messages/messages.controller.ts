@@ -1,5 +1,7 @@
 // Core
 import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+// DTO
+import { CreateMessageDto } from './DTO/create-message.dto';
 
 @Controller('messages') // class decorator
 export class MessagesController {
@@ -9,8 +11,9 @@ export class MessagesController {
   }
 
   @Post()
-  createMessage(@Body() body: any) {
+  createMessage(@Body() body: CreateMessageDto) {
     console.log(body);
+    return body;
   }
 
   @Get('/:id')
